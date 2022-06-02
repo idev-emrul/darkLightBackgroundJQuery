@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<style>
+		.dark {
+			background-color: #444;
+			color: #fff;
+		}
+
+		.light {
+			background-color: #fff;
+			color: #444;
+		}
+	</style>
+</head>
+
+<body class="">
+	<h1>test</h1>
+
+	<button id="c">click to toggle background</button>
+
+	<script>
+		$(document).ready(function () {
+			$('#c').click(function () {
+				let bgColor = $.cookie("BgColor");
+				if (bgColor == 'dark') {
+					$.cookie("BgColor", "light");
+					$('body').removeClass('dark');
+					$('body').addClass($.cookie("BgColor"));
+				} else {
+					$.cookie("BgColor", "dark");
+					$('body').removeClass('light');
+					$('body').addClass($.cookie("BgColor"));
+				}
+			});
+			$('body').addClass($.cookie("BgColor"));
+		});
+	</script>
+</body>
+
+</html>
